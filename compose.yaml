@@ -1,0 +1,14 @@
+services:
+  underwriting-room:
+    build: .
+    ports:
+      - '127.0.0.1:4317:4317'
+    environment:
+      FCT_ACCESS_CODE: ${FCT_ACCESS_CODE:?Set a local access code in your shell}
+    volumes:
+      - case-data:/data
+      - codex-signin:/home/node/.codex
+    init: true
+volumes:
+  case-data:
+  codex-signin:

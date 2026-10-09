@@ -1,0 +1,14 @@
+node_modules
+dist
+.data
+.protocol
+docs/evaluation/*.json
+artifacts
+test-results
+playwright-report
+package-lock.json
+backend/**/bin
+backend/**/obj
+backend/**/packages.lock.json
+src/generated
+contracts

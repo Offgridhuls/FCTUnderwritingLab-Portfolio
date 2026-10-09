@@ -1,0 +1,8 @@
+DEMONSTRATION RULES ONLY. Not FCT underwriting rules or legal advice.
+R1: Supplied authority must connect a seller representative, seller, property and transaction. Missing evidence is a documentation gap, not evidence of fraud.
+R2: A mortgage payout must be valid through the proposed closing date. Use provided deterministic comparisons; do not calculate dates or money yourself.
+R3: An open municipal notice needs clarification of scope and current status. Do not infer a defect, coverage outcome or contravention from a notice alone.
+R4: An explained name variation is not an accusation or fraud indicator. Supplied identity summaries do not authenticate a real identity.
+R5: A human assertion is unverified without cited documentary support. Hypothetical branch assumptions are never verified evidence.
+R6: Quote only supplied pages, cite exact document IDs and 1-based pages. A missing document has no invented citation: cite the request/correspondence establishing the gap.
+R7: Withdraw a gap only when the supplied evidence addresses it. Preserve unresolved contradictory evidence and limitations. No insurance decisions.

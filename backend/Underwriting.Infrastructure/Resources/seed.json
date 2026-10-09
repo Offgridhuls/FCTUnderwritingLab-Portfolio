@@ -1,0 +1,124 @@
+[
+  {
+    "id": "agreement",
+    "title": "Agreement of Purchase and Sale",
+    "kind": "agreement",
+    "pages": [
+      "SYNTHETIC TRANSACTION - 18 Alder Lane, Kingston, Ontario\nBuyer: Alex Chen. Seller: Morgan Ellis.\nPurchase price: CAD 700,000. Proposed closing: 2026-10-15.\nProperty identifier: DEMO-PIN-001. Residential freehold purchase.\nJordan Vale corresponds as seller representative. Representative authority is to be supplied before closing."
+    ],
+    "file": "Seed/agreement.pdf",
+    "warnings": [],
+    "createdAt": "2026-10-09T16:26:34.476Z",
+    "reveal": false
+  },
+  {
+    "id": "title",
+    "title": "Parcel Register Extract",
+    "kind": "title",
+    "pages": [
+      "SYNTHETIC PARCEL REGISTER - DEMO-PIN-001\n18 Alder Lane, Kingston, Ontario. Registered owner: Morgan A. Ellis.\nCharge DEMO-CH-100: Cedar Bank mortgage, principal originally CAD 420,000.\nNo other registered charge is shown in this prepared extract. This is a fictional snapshot, not a live land registry search."
+    ],
+    "file": "Seed/title.pdf",
+    "warnings": [],
+    "createdAt": "2026-10-09T16:26:34.478Z",
+    "reveal": false
+  },
+  {
+    "id": "lender",
+    "title": "Purchaser Lender Instructions",
+    "kind": "lender",
+    "pages": [
+      "SYNTHETIC LENDER INSTRUCTIONS\nBuyer: Alex Chen. New loan: CAD 500,000.\nClosing date: 2026-10-15. Existing Cedar Bank charge DEMO-CH-100 must be addressed with a current payout statement.\nAny proposed change to closing must be reconciled with lender instructions."
+    ],
+    "file": "Seed/lender.pdf",
+    "warnings": [],
+    "createdAt": "2026-10-09T16:26:34.479Z",
+    "reveal": false
+  },
+  {
+    "id": "payout",
+    "title": "Cedar Bank Payout • October 12",
+    "kind": "payout",
+    "pages": [
+      "SYNTHETIC PAYOUT STATEMENT\nCharge: DEMO-CH-100. Property: 18 Alder Lane.\nPayout amount: CAD 381,250.00. Valid through: 2026-10-12.\nDo not extrapolate the amount beyond the validity date. Obtain an updated statement if closing occurs later."
+    ],
+    "file": "Seed/payout.pdf",
+    "warnings": [],
+    "createdAt": "2026-10-09T16:26:34.480Z",
+    "reveal": false
+  },
+  {
+    "id": "identity",
+    "title": "Name Reconciliation Summary",
+    "kind": "identity",
+    "pages": [
+      "SYNTHETIC NAME RECONCILIATION\nThe seller shown as Morgan Ellis in the agreement is the same fictional person shown as Morgan A. Ellis on the parcel register.\nThe middle initial A is omitted in the agreement. Supplied name reconciliation explains this variation.\nThis prepared summary is evidence for this demonstration only; it does not perform identity authentication."
+    ],
+    "file": "Seed/identity.pdf",
+    "warnings": [],
+    "createdAt": "2026-10-09T16:26:34.481Z",
+    "reveal": false
+  },
+  {
+    "id": "representative",
+    "title": "Representative Correspondence",
+    "kind": "authority-request",
+    "pages": [
+      "SYNTHETIC CORRESPONDENCE - 2026-10-02\nFrom: Jordan Vale, seller representative.\nI am arranging execution on behalf of Morgan Ellis for 18 Alder Lane. The supporting authorization is not yet included in the transaction package.\nPlease list authority documentation as outstanding until the supporting document is reviewed."
+    ],
+    "file": "Seed/representative.pdf",
+    "warnings": [],
+    "createdAt": "2026-10-09T16:26:34.482Z",
+    "reveal": false
+  },
+  {
+    "id": "municipal",
+    "title": "Municipal Records Notice",
+    "kind": "municipal",
+    "pages": [
+      "SYNTHETIC MUNICIPAL NOTICE - FILE DEMO-M-22\n18 Alder Lane, Kingston, Ontario.\nA records review concerning a rear deck permit remains open pending clarification. The notice does not determine whether work is compliant or noncompliant.\nRequest current municipal clarification of status and scope before concluding this issue."
+    ],
+    "file": "Seed/municipal.pdf",
+    "warnings": [],
+    "createdAt": "2026-10-09T16:26:34.483Z",
+    "reveal": false
+  },
+  {
+    "id": "authorization",
+    "title": "Seller Representative Authorization",
+    "kind": "authority",
+    "pages": [
+      "SYNTHETIC AUTHORIZATION PACKAGE\nSeller: Morgan Ellis. Representative: Jordan Vale. Property: 18 Alder Lane; DEMO-PIN-001.\nThis package is prepared solely for the underwriting demonstration.",
+      "SYNTHETIC SCOPE SCHEDULE\nTransaction: sale of 18 Alder Lane to Alex Chen.\nThis schedule references the authority confirmation on page 3.",
+      "SYNTHETIC AUTHORITY CONFIRMATION\nMorgan Ellis authorizes Jordan Vale to execute the sale closing documents for 18 Alder Lane, DEMO-PIN-001, to Alex Chen on 2026-10-15.\nFor this fictional exercise, the supplied verification summary confirms the scope and current validity of this authorization. This does not authenticate real signatures."
+    ],
+    "file": "Seed/authorization.pdf",
+    "warnings": [],
+    "createdAt": "2026-10-09T16:26:34.485Z",
+    "reveal": true
+  },
+  {
+    "id": "payout-updated",
+    "title": "Updated Payout • October 20",
+    "kind": "payout-update",
+    "pages": [
+      "SYNTHETIC UPDATED PAYOUT STATEMENT\nCharge: DEMO-CH-100. Property: 18 Alder Lane.\nPayout amount: CAD 381,640.00. Valid through: 2026-10-20.\nThis statement supersedes the earlier payout valid through 2026-10-12 for the same charge."
+    ],
+    "file": "Seed/payout-updated.pdf",
+    "warnings": [],
+    "createdAt": "2026-10-09T16:26:34.485Z",
+    "reveal": true
+  },
+  {
+    "id": "municipal-clear",
+    "title": "Municipal Clarification",
+    "kind": "municipal-clarification",
+    "pages": [
+      "SYNTHETIC MUNICIPAL CLARIFICATION - FILE DEMO-M-22\n18 Alder Lane, Kingston, Ontario.\nThe rear deck records review is closed. No outstanding requirement remains under this notice as of 2026-10-08.\nThis clarification concerns DEMO-M-22 only and is not an inspection of the whole property."
+    ],
+    "file": "Seed/municipal-clear.pdf",
+    "warnings": [],
+    "createdAt": "2026-10-09T16:26:34.486Z",
+    "reveal": true
+  }
+]

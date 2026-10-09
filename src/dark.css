@@ -1,0 +1,327 @@
+/* Dark surfaces keep document canvases in their original paper colours. */
+:root {
+  color-scheme: light;
+}
+.theme-toggle {
+  white-space: nowrap;
+}
+.login-form > .theme-toggle {
+  align-self: flex-end;
+  margin-bottom: 24px;
+}
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --ink: #e0eae6;
+  --muted: #acbcb5;
+  --line: #384c45;
+  --teal: #367d6a;
+  --amber: #e4b878;
+  background: #131e1c;
+  color: var(--ink);
+}
+:root[data-theme='dark'] :is(.app-shell, .main-shell, .login-form) {
+  background: #131e1c;
+}
+:root[data-theme='dark']
+  :is(
+    .topbar,
+    .facts,
+    .review-progress,
+    .finding-card,
+    .finding-detail,
+    .evidence-panel,
+    .document-table,
+    .reviewer-group,
+    .brief,
+    .comparison-grid article,
+    .intervention-log article,
+    dialog,
+    .board-node,
+    button,
+    input,
+    textarea,
+    select,
+    .search-box
+  ) {
+  background: #1d2b27;
+  color: var(--ink);
+  border-color: var(--line);
+}
+:root[data-theme='dark']
+  :is(
+    .specialist-progress article,
+    .assessment-sections section,
+    .notes,
+    .next-check,
+    .quote,
+    .empty-state,
+    .reveal-box,
+    .form-hint,
+    .challenge-target,
+    .challenge-timing,
+    .review-question,
+    .human-thread,
+    .peer-thread,
+    .user-avatar,
+    .pdf-icon,
+    .role-avatar,
+    .segmented,
+    .small-count,
+    .tabs button > span
+  ) {
+  background: #253830;
+  border-color: var(--line);
+  color: #c6d8ca;
+}
+:root[data-theme='dark']
+  :is(
+    p,
+    small,
+    .eyebrow,
+    .case-number,
+    .facts span,
+    .team-caption,
+    .team-caption > span:last-child,
+    .reviewer small,
+    .breadcrumb,
+    .breadcrumb strong,
+    .synthetic-pill,
+    .history-select label,
+    .board-legend,
+    .node-kicker,
+    .board-node small,
+    .finding-card p,
+    .finding-card-bottom,
+    .finding-card-bottom > span:last-child,
+    .panel-heading > span,
+    .page-controls span,
+    .page-controls a,
+    .quote blockquote,
+    .quote small,
+    .document-table small,
+    .document-table > button > span:nth-last-child(2),
+    .comparison-sides small,
+    .brief pre,
+    .footer,
+    .finding-owner,
+    .qa-label,
+    .exchange-header > span:not(.pill),
+    .checklist-label,
+    .specialist-progress article > small,
+    .specialist-progress article > div span,
+    .specialist-progress ul,
+    .stage-track small
+  ) {
+  color: #adbbb3;
+}
+:root[data-theme='dark']
+  :is(
+    h1,
+    h2,
+    h3,
+    .facts strong,
+    .team-caption strong,
+    .node-title strong,
+    .next-check strong,
+    .reviewer strong,
+    .empty-state h3,
+    .reviewer-group > h3,
+    .peer-thread strong,
+    .human-thread strong
+  ) {
+  color: #e0eae6;
+}
+:root[data-theme='dark'] :is(.tabs > button, .icon-button, .text-button, .search-box input) {
+  background: transparent;
+}
+:root[data-theme='dark']
+  :is(
+    .tabs > button.active,
+    .stage-track .done,
+    .stage-track .active,
+    .page-text summary,
+    .reviewer-run,
+    .connection.connected,
+    .qa-label
+  ) {
+  color: #99d9bb;
+}
+:root[data-theme='dark']
+  :is(
+    button:hover:not(:disabled),
+    .segmented button.active,
+    .finding-card.selected,
+    .specialist-progress article.working,
+    .citations button,
+    .stage-track li > span
+  ) {
+  background: #304b3f;
+  color: #d8efdf;
+}
+:root[data-theme='dark'] :is(.primary, .primary:hover:not(:disabled)) {
+  background: #367d6a;
+  color: #fff;
+  border-color: #63a48d;
+}
+:root[data-theme='dark'] :is(.notice, .pill, .finding-card-top, .review-question.unresolved) {
+  background: #3d3526;
+  color: #edc486;
+}
+:root[data-theme='dark'] .finding-card-top {
+  background: transparent;
+}
+:root[data-theme='dark'] :is(.error-banner, .citations button.invalid, .voice-error) {
+  background: #422c2a;
+  color: #f2b4a7;
+  border-color: #99685d;
+}
+:root[data-theme='dark'] :is(.warning, .error) {
+  color: #f2bb91;
+}
+:root[data-theme='dark'] :is(.pill.success, .finding-card.clear .finding-card-top) {
+  background: #294035;
+  color: #a6dfb7;
+}
+:root[data-theme='dark'] .assessment-limit {
+  background: #253842;
+  color: #b3d2e1;
+}
+:root[data-theme='dark'] :is(.case-board, .react-flow) {
+  background: #17231f;
+}
+:root[data-theme='dark'] .board-node.property {
+  background: #284d40;
+  color: #eff7f2;
+}
+:root[data-theme='dark'] .react-flow__edge-textbg {
+  fill: #17231f !important;
+}
+:root[data-theme='dark'] .react-flow__edge-text {
+  fill: #b3c9bc !important;
+}
+:root[data-theme='dark'] .react-flow__edge-path {
+  stroke: #709683 !important;
+}
+:root[data-theme='dark'] .react-flow__controls-button {
+  background: #263c31;
+  border-color: var(--line);
+  fill: #dbece0;
+}
+:root[data-theme='dark'] :is(.react-flow__attribution, .react-flow__attribution a) {
+  background: #1d2b27;
+  color: #adbbb3;
+}
+:root[data-theme='dark']
+  :is(
+    .discussion,
+    .exchange,
+    .saved-note,
+    .finding-thread,
+    .finding-thread > summary,
+    .synthetic-pill,
+    .facts > div,
+    .board-legend > span:last-child
+  ) {
+  border-color: var(--line);
+}
+:root[data-theme='dark'] :is(button, a, input, textarea, select):focus-visible {
+  outline-color: #a6dfb7;
+}
+@media (max-width: 650px) {
+  .theme-toggle span {
+    display: none;
+  }
+  .topbar-right {
+    gap: 10px;
+  }
+}
+:root[data-theme='dark'] :is(.facts small, .thread-message) {
+  background: #253830;
+  color: #c6d8ca;
+}
+:root[data-theme='dark']
+  :is(
+    .finding-thread > summary span,
+    .reviewer-group > h3 small,
+    .thread-message p,
+    .thread-message strong
+  ) {
+  color: #adbbb3;
+}
+:root[data-theme='dark'] :is(.case-board, .finding-card-bottom, .finding-action) {
+  border-color: var(--line);
+}
+:root[data-theme='dark'] .finding-assessment.actionable .assessment-sections section,
+:root[data-theme='dark'] .finding-assessment.actionable .finding-action {
+  background: #392827;
+  border-color: #a9635e;
+  border-left-color: #ef8d85;
+}
+:root[data-theme='dark'] .finding-assessment.actionable .assessment-sections h3,
+:root[data-theme='dark'] .finding-assessment.actionable .finding-action strong {
+  color: #ffb4ac;
+}
+:root[data-theme='dark'] .finding-assessment.actionable .assessment-sections p,
+:root[data-theme='dark'] .finding-assessment.actionable .finding-action p,
+:root[data-theme='dark'] .finding-assessment.actionable .assessment-sections small {
+  color: #ddc7c3;
+}
+:root[data-theme='dark'] .finding-card.actionable {
+  background: #392827;
+  border-color: #a9635e;
+  border-left-color: #ef8d85;
+}
+:root[data-theme='dark'] .finding-card.actionable .finding-card-top {
+  color: #ffb4ac;
+}
+:root[data-theme='dark'] :is(.cases-list, .cases-search, .case-actions > div) {
+  background: #1d2b27;
+}
+:root[data-theme='dark']
+  :is(.cases-filters, .case-folder, .case-dialog-name, .case-actions[open] summary) {
+  background: #263b32;
+}
+:root[data-theme='dark'] .cases-filters button[aria-pressed='true'] {
+  background: #395447;
+  color: var(--ink);
+}
+:root[data-theme='dark'] .case-status {
+  background: #2b4636;
+  color: #b6d5bb;
+}
+:root[data-theme='dark'] .case-status.finalized {
+  background: #34413f;
+  color: #c0ceca;
+}
+:root[data-theme='dark'] .case-folder {
+  color: #9acbb4;
+}
+:root[data-theme='dark'] .consultation-card {
+  background: #1d2b27;
+}
+:root[data-theme='dark'] :is(.consultation-message, .consultation-empty) {
+  background: #23332c;
+}
+:root[data-theme='dark'] .consultation-message.answer {
+  background: #273f34;
+}
+:root[data-theme='dark'] .consultation-avatar {
+  background: #385446;
+  color: #d4e7db;
+}
+:root[data-theme='dark'] .consultation-participants {
+  color: #a9d5be;
+}
+:root[data-theme='dark'] .consultation-outcome.unresolved {
+  color: #ffb9a4;
+}
+:root[data-theme='dark'] .lead-summary {
+  background: #1d2b27;
+}
+:root[data-theme='dark'] .lead-action-card {
+  background: #362927;
+  border-color: #80554c;
+}
+:root[data-theme='dark'] .lead-action-category {
+  color: #ffb8a5;
+}

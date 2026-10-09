@@ -1,0 +1,59 @@
+{
+  "type": "object",
+  "properties": {
+    "questions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "topicId": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1600
+          },
+          "citations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "documentId": {
+                  "type": "string"
+                },
+                "page": {
+                  "type": "integer",
+                  "exclusiveMinimum": 0
+                },
+                "quote": {
+                  "type": "string",
+                  "minLength": 8,
+                  "maxLength": 1200
+                }
+              },
+              "required": [
+                "documentId",
+                "page",
+                "quote"
+              ],
+              "additionalProperties": false
+            },
+            "maxItems": 5
+          }
+        },
+        "required": [
+          "topicId",
+          "text",
+          "citations"
+        ],
+        "additionalProperties": false
+      },
+      "maxItems": 24
+    }
+  },
+  "required": [
+    "questions"
+  ],
+  "additionalProperties": false
+}

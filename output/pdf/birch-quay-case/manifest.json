@@ -1,0 +1,73 @@
+{
+  "name": "Birch Quay - corporate seller and coach house",
+  "file": "Birch-Quay-Case-Documents.pdf",
+  "pages": 12,
+  "price": 860000,
+  "loanAmount": 602000,
+  "closingDate": "2026-10-23",
+  "seller": "Birch Quay Holdings Ltd.",
+  "buyer": "Leila Noor",
+  "address": "42 Birch Quay, Toronto, Ontario (fictional)",
+  "records": [
+    {
+      "id": "BQ-01",
+      "title": "Purchase agreement",
+      "page": 1
+    },
+    {
+      "id": "BQ-02",
+      "title": "Purchaser lender instructions",
+      "page": 2
+    },
+    {
+      "id": "BQ-03",
+      "title": "Prepared parcel register extract",
+      "page": 3
+    },
+    {
+      "id": "BQ-04",
+      "title": "Access easement instrument excerpt",
+      "page": 4
+    },
+    {
+      "id": "BQ-05",
+      "title": "Corporate authority and party records",
+      "page": 5
+    },
+    {
+      "id": "BQ-06",
+      "title": "Secured facilities and payout statement",
+      "page": 6
+    },
+    {
+      "id": "BQ-07",
+      "title": "Contractor settlement correspondence",
+      "page": 7
+    },
+    {
+      "id": "BQ-08",
+      "title": "Municipal property and inspection records",
+      "page": 8
+    },
+    {
+      "id": "BQ-09",
+      "title": "Survey-related evidence and occupation",
+      "page": 9
+    },
+    {
+      "id": "BQ-10",
+      "title": "Buyer funds and draft closing ledger",
+      "page": 10
+    },
+    {
+      "id": "BQ-11",
+      "title": "Payment-direction messages and contact log",
+      "page": 11
+    },
+    {
+      "id": "BQ-12",
+      "title": "File chronology and counsel delivery note",
+      "page": 12
+    }
+  ]
+}

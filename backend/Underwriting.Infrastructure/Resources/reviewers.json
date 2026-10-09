@@ -1,0 +1,127 @@
+{
+  "roles": [
+    "ownership",
+    "identity",
+    "mortgage",
+    "property",
+    "survey",
+    "fraud"
+  ],
+  "roleNames": {
+    "ownership": "Title & authority",
+    "identity": "Identity",
+    "mortgage": "Mortgages & liens",
+    "property": "Permits & municipal",
+    "survey": "Surveys & boundaries",
+    "fraud": "Fraud indicators",
+    "lead": "Lead reviewer"
+  },
+  "roleScopes": {
+    "ownership": "Compare registered ownership, property identifiers, legal descriptions, easements and representative authority. Own AUTHORITY and TITLE findings. Identity owns name reconciliation; mortgage owns charges and liens.",
+    "identity": "Compare party names and supplied identity/verification summaries. Own NAME_RECONCILIATION and IDENTITY findings. Explain innocent discrepancies. Supplied summaries do not authenticate identity; do not claim identity verification.",
+    "mortgage": "Review registered mortgages, other liens/charges, discharge evidence, payout validity and lender instructions. Own PAYOUT and LIEN findings. Use deterministic date and amount checks. A prepared extract is not a current or complete registry search.",
+    "property": "Review permits, municipal notices, work orders and supplied clarification. Own MUNICIPAL and PERMIT findings. A notice or absent permit is not by itself proof of unlawful work or a defect.",
+    "survey": "Review supplied text-based survey reports, boundary descriptions, encroachments and survey-related easements. Own SURVEY findings. Do not interpret drawings or infer boundaries from a street address. If no survey evidence exists, report not assessed in your summary; do not invent an encroachment or mandatory survey requirement.",
+    "fraud": "Assess only concrete documentary contradictions or suspicious transaction instructions. Own FRAUD_INDICATOR findings. Distinguish indicators from proof and recommend specific independent human verification when warranted. Missing authority, an explained name variation or absent documents alone are not fraud. Do not duplicate other specialists' documentation gaps as fraud findings; do not declare a transaction fraud-free.",
+    "lead": "Consolidate all six specialist scopes for a human underwriter. Preserve disagreement, evidence limitations, unassessed areas and next checks. Never approve or deny insurance, clear a closing, authenticate identity or make the final underwriting decision."
+  },
+  "coverageTopics": [
+    {
+      "id": "authority",
+      "reviewer": "ownership",
+      "label": "Representative authority and execution"
+    },
+    {
+      "id": "proceeds_authority",
+      "reviewer": "ownership",
+      "label": "Authority to direct proceeds"
+    },
+    {
+      "id": "conveyed_land",
+      "reviewer": "ownership",
+      "label": "Conveyed land versus purchase description"
+    },
+    {
+      "id": "access_rights",
+      "reviewer": "ownership",
+      "label": "Easements and intended access"
+    },
+    {
+      "id": "title_currency",
+      "reviewer": "ownership",
+      "label": "Current and complete title records"
+    },
+    {
+      "id": "name_variation",
+      "reviewer": "identity",
+      "label": "Name discrepancies and supplied explanations"
+    },
+    {
+      "id": "identity_evidence",
+      "reviewer": "identity",
+      "label": "Scope of identity-verification evidence"
+    },
+    {
+      "id": "payout_conditions",
+      "reviewer": "mortgage",
+      "label": "Payout dates, amounts and conditions"
+    },
+    {
+      "id": "parcel_release",
+      "reviewer": "mortgage",
+      "label": "Cross-security and parcel release"
+    },
+    {
+      "id": "charge_matching",
+      "reviewer": "mortgage",
+      "label": "Creditor, charge, parcel and discharge matching"
+    },
+    {
+      "id": "lien_settlement",
+      "reviewer": "mortgage",
+      "label": "Lien and settlement scope"
+    },
+    {
+      "id": "lender_occupancy",
+      "reviewer": "mortgage",
+      "label": "Lender conditions versus tenancy and intended occupancy"
+    },
+    {
+      "id": "funds_reconciliation",
+      "reviewer": "mortgage",
+      "label": "Authorized financing, deposit treatment and funds reconciliation"
+    },
+    {
+      "id": "notice_status",
+      "reviewer": "property",
+      "label": "Municipal notice status and timing"
+    },
+    {
+      "id": "permit_scope",
+      "reviewer": "property",
+      "label": "Permit scope versus work and intended use"
+    },
+    {
+      "id": "survey_scope",
+      "reviewer": "survey",
+      "label": "Currency and scope of survey evidence"
+    },
+    {
+      "id": "physical_boundaries",
+      "reviewer": "survey",
+      "label": "Current improvements, boundaries and occupation"
+    },
+    {
+      "id": "suspicious_instructions",
+      "reviewer": "fraud",
+      "label": "Documented suspicious communications and payment changes"
+    },
+    {
+      "id": "independent_channels",
+      "reviewer": "fraud",
+      "label": "Independent verification through established channels"
+    }
+  ],
+  "coverageVersion": "demo-coverage-1",
+  "rulesVersion": "DEMO-ONTARIO-1.0"
+}

@@ -1,0 +1,37 @@
+name: Verify local application
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  windows:
+    runs-on: windows-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+      - run: npm ci
+      - run: npm run build
+      - run: npm run lint
+      - run: npm run format:check
+      - run: npm run format:backend:check
+      - run: npm test
+      - run: npm run test:dotnet
+      - run: npm run test:contracts
+      - run: npm run contracts:generate
+      - run: git diff --exit-code -- contracts/openapi.json src/generated/api-contracts.ts
+      - run: npx playwright install chromium
+      - run: npm run test:ui
+      - run: npm run test:load
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: browser-failures
+          path: |
+            test-results
+            artifacts/fixture-server.log

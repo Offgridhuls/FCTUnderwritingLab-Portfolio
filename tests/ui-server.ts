@@ -1,0 +1,13 @@
+import { buildApp } from '../server/app';
+import { FixtureModel } from './fake-model';
+import { mkdtemp } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
+process.env.PORT = '4318';
+const dir = await mkdtemp(join(tmpdir(), 'fct-ui-test-'));
+const model = new FixtureModel();
+model.delay = 80;
+const { app } = await buildApp({ dir, model, accessCode: 'ui-test-only' });
+await app.listen({ host: '127.0.0.1', port: 4318 });
+console.log('Automated browser fixture server. Not a live AI demonstration.');
+process.on('SIGTERM', () => void app.close().then(() => process.exit(0)));

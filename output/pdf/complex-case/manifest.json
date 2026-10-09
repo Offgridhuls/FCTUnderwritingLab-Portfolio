@@ -1,0 +1,42 @@
+[
+  {
+    "file": "01-agreement.pdf",
+    "pages": 2,
+    "bytes": 3925
+  },
+  {
+    "file": "02-title.pdf",
+    "pages": 2,
+    "bytes": 3992
+  },
+  {
+    "file": "03-lender.pdf",
+    "pages": 2,
+    "bytes": 3910
+  },
+  {
+    "file": "04-payout.pdf",
+    "pages": 2,
+    "bytes": 3804
+  },
+  {
+    "file": "05-identity.pdf",
+    "pages": 2,
+    "bytes": 3807
+  },
+  {
+    "file": "06-authority.pdf",
+    "pages": 2,
+    "bytes": 3747
+  },
+  {
+    "file": "07-municipal.pdf",
+    "pages": 2,
+    "bytes": 3638
+  },
+  {
+    "file": "08-supplement.pdf",
+    "pages": 6,
+    "bytes": 9624
+  }
+]

@@ -1,0 +1,382 @@
+{
+  "type": "object",
+  "properties": {
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "requiresHumanReview": {
+            "type": "boolean"
+          },
+          "category": {
+            "type": "string",
+            "enum": [
+              "issue",
+              "missing_document",
+              "assessment_limit"
+            ]
+          },
+          "missingDocument": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 140
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "impact": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 280
+          },
+          "action": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 280
+          },
+          "issueCode": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "severity": {
+            "type": "string",
+            "enum": [
+              "attention",
+              "clarify",
+              "clear"
+            ]
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "open",
+              "resolved",
+              "withdrawn"
+            ]
+          },
+          "explanation": {
+            "type": "string",
+            "maxLength": 2500
+          },
+          "nextCheck": {
+            "type": "string",
+            "maxLength": 1200
+          },
+          "known": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1500
+          },
+          "uncertain": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1500
+          },
+          "changeEvidence": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1500
+          },
+          "reviewQuestions": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "question": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 350
+                },
+                "answer": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 1000
+                },
+                "citations": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "documentId": {
+                        "type": "string"
+                      },
+                      "page": {
+                        "type": "integer",
+                        "exclusiveMinimum": 0
+                      },
+                      "quote": {
+                        "type": "string",
+                        "minLength": 8,
+                        "maxLength": 1200
+                      }
+                    },
+                    "required": [
+                      "documentId",
+                      "page",
+                      "quote"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "minItems": 1,
+                  "maxItems": 4
+                }
+              },
+              "required": [
+                "question",
+                "answer",
+                "citations"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1,
+            "maxItems": 3
+          },
+          "citations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "documentId": {
+                  "type": "string"
+                },
+                "page": {
+                  "type": "integer",
+                  "exclusiveMinimum": 0
+                },
+                "quote": {
+                  "type": "string",
+                  "minLength": 8,
+                  "maxLength": 1200
+                }
+              },
+              "required": [
+                "documentId",
+                "page",
+                "quote"
+              ],
+              "additionalProperties": false
+            },
+            "maxItems": 8
+          }
+        },
+        "required": [
+          "requiresHumanReview",
+          "category",
+          "missingDocument",
+          "impact",
+          "action",
+          "issueCode",
+          "title",
+          "severity",
+          "status",
+          "explanation",
+          "nextCheck",
+          "known",
+          "uncertain",
+          "changeEvidence",
+          "reviewQuestions",
+          "citations"
+        ],
+        "additionalProperties": false
+      },
+      "maxItems": 12
+    },
+    "summary": {
+      "type": "string",
+      "maxLength": 3000
+    },
+    "coverage": {
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "topicId": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string",
+                "enum": [
+                  "issue",
+                  "no_issue",
+                  "insufficient",
+                  "not_applicable"
+                ]
+              },
+              "explanation": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 1600
+              },
+              "citations": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "documentId": {
+                      "type": "string"
+                    },
+                    "page": {
+                      "type": "integer",
+                      "exclusiveMinimum": 0
+                    },
+                    "quote": {
+                      "type": "string",
+                      "minLength": 8,
+                      "maxLength": 1200
+                    }
+                  },
+                  "required": [
+                    "documentId",
+                    "page",
+                    "quote"
+                  ],
+                  "additionalProperties": false
+                },
+                "maxItems": 8
+              },
+              "findingIssueCodes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "maxItems": 12
+              },
+              "auditResponse": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "maxLength": 1600
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "auditResolved": {
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              },
+              "auditAddressed": {
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              },
+              "scenario": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "status": {
+                        "type": "string",
+                        "enum": [
+                          "issue",
+                          "no_issue",
+                          "insufficient",
+                          "not_applicable"
+                        ]
+                      },
+                      "explanation": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 1600
+                      },
+                      "citations": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "documentId": {
+                              "type": "string"
+                            },
+                            "page": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0
+                            },
+                            "quote": {
+                              "type": "string",
+                              "minLength": 8,
+                              "maxLength": 1200
+                            }
+                          },
+                          "required": [
+                            "documentId",
+                            "page",
+                            "quote"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "maxItems": 8
+                      },
+                      "findingIssueCodes": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        },
+                        "maxItems": 12
+                      },
+                      "limitationIssueCodes": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        },
+                        "maxItems": 12
+                      }
+                    },
+                    "required": [
+                      "status",
+                      "explanation",
+                      "citations",
+                      "findingIssueCodes",
+                      "limitationIssueCodes"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "topicId",
+              "status",
+              "explanation",
+              "citations",
+              "findingIssueCodes",
+              "auditResponse",
+              "auditResolved",
+              "auditAddressed",
+              "scenario"
+            ],
+            "additionalProperties": false
+          },
+          "maxItems": 24
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "findings",
+    "summary",
+    "coverage"
+  ],
+  "additionalProperties": false
+}

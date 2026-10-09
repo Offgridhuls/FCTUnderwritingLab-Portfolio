@@ -1,0 +1,71 @@
+{
+  "type": "object",
+  "properties": {
+    "challenges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "target": {
+            "type": "string",
+            "enum": [
+              "ownership",
+              "identity",
+              "mortgage",
+              "property",
+              "survey",
+              "fraud"
+            ]
+          },
+          "findingId": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string",
+            "maxLength": 1600
+          },
+          "citations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "documentId": {
+                  "type": "string"
+                },
+                "page": {
+                  "type": "integer",
+                  "exclusiveMinimum": 0
+                },
+                "quote": {
+                  "type": "string",
+                  "minLength": 8,
+                  "maxLength": 1200
+                }
+              },
+              "required": [
+                "documentId",
+                "page",
+                "quote"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1,
+            "maxItems": 5
+          }
+        },
+        "required": [
+          "target",
+          "findingId",
+          "text",
+          "citations"
+        ],
+        "additionalProperties": false
+      },
+      "maxItems": 2
+    }
+  },
+  "required": [
+    "challenges"
+  ],
+  "additionalProperties": false
+}

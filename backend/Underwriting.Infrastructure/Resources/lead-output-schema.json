@@ -1,0 +1,41 @@
+{
+  "type": "object",
+  "properties": {
+    "brief": {
+      "type": "string",
+      "maxLength": 10000
+    },
+    "citations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "documentId": {
+            "type": "string"
+          },
+          "page": {
+            "type": "integer",
+            "exclusiveMinimum": 0
+          },
+          "quote": {
+            "type": "string",
+            "minLength": 8,
+            "maxLength": 1200
+          }
+        },
+        "required": [
+          "documentId",
+          "page",
+          "quote"
+        ],
+        "additionalProperties": false
+      },
+      "maxItems": 16
+    }
+  },
+  "required": [
+    "brief",
+    "citations"
+  ],
+  "additionalProperties": false
+}

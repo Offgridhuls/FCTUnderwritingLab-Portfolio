@@ -1,0 +1,3311 @@
+{
+  "openapi": "3.1.1",
+  "info": {
+    "title": "The Underwriting Room API",
+    "version": "v1"
+  },
+  "servers": [
+    {
+      "url": "/"
+    }
+  ],
+  "paths": {
+    "/api/v1/sessions": {
+      "post": {
+        "tags": [
+          "Underwriting.Api"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SignIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SessionResult"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Underwriting.Api"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AnonymousTypeOfIReadOnlyListOfCaseRecordAndstringAndstring"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Underwriting.Api"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AnonymousTypeOfboolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/sessions/reset": {
+      "post": {
+        "tags": [
+          "Underwriting.Api"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AnonymousTypeOfstringAndstring"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/cases": {
+      "get": {
+        "tags": [
+          "Underwriting.Api"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CaseRecord"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Underwriting.Api"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCaseRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateCaseResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/cases/{caseId}": {
+      "get": {
+        "tags": [
+          "Underwriting.Api"
+        ],
+        "parameters": [
+          {
+            "name": "caseId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AnonymousTypeOfCaseRecordAndIEnumerableOfBranch"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/cases/{caseId}/status": {
+      "post": {
+        "tags": [
+          "Underwriting.Api"
+        ],
+        "parameters": [
+          {
+            "name": "caseId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StatusRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CaseRecord"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/branches/{branchId}/snapshot": {
+      "get": {
+        "tags": [
+          "Underwriting.Api"
+        ],
+        "parameters": [
+          {
+            "name": "branchId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Workspace"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/branches": {
+      "post": {
+        "tags": [
+          "Underwriting.Api"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BranchRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Branch"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/branches/{branchId}": {
+      "patch": {
+        "tags": [
+          "Underwriting.Api"
+        ],
+        "parameters": [
+          {
+            "name": "branchId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EditBranchRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Branch"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/branches/{branchId}/details": {
+      "post": {
+        "tags": [
+          "Underwriting.Api"
+        ],
+        "parameters": [
+          {
+            "name": "branchId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConfirmDetailsRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Branch"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/branches/{branchId}/details/history": {
+      "get": {
+        "tags": [
+          "Underwriting.Api"
+        ],
+        "parameters": [
+          {
+            "name": "branchId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DetailHistory"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/documents/{documentId}": {
+      "get": {
+        "tags": [
+          "Underwriting.Api"
+        ],
+        "parameters": [
+          {
+            "name": "documentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AnonymousTypeOfstringAndstringAndstringAndListOfstringAndListOfstringAndstring"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/documents/{documentId}/file": {
+      "get": {
+        "tags": [
+          "Underwriting.Api"
+        ],
+        "parameters": [
+          {
+            "name": "documentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/documents/reveal": {
+      "post": {
+        "tags": [
+          "Underwriting.Api"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RevealRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Branch"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/documents": {
+      "post": {
+        "tags": [
+          "Underwriting.Api"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UploadResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/reviews": {
+      "post": {
+        "tags": [
+          "Underwriting.Api"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StartReviewRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Review"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/branches/{branchId}/reviews": {
+      "get": {
+        "tags": [
+          "Underwriting.Api"
+        ],
+        "parameters": [
+          {
+            "name": "branchId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Review"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/reviews/{reviewId}": {
+      "get": {
+        "tags": [
+          "Underwriting.Api"
+        ],
+        "parameters": [
+          {
+            "name": "reviewId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Review"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/reviews/{reviewId}/findings": {
+      "get": {
+        "tags": [
+          "Underwriting.Api"
+        ],
+        "parameters": [
+          {
+            "name": "reviewId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Finding"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/reviews/{reviewId}/exchanges": {
+      "get": {
+        "tags": [
+          "Underwriting.Api"
+        ],
+        "parameters": [
+          {
+            "name": "reviewId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Exchange"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/reviews/{reviewId}/history": {
+      "get": {
+        "tags": [
+          "Underwriting.Api"
+        ],
+        "parameters": [
+          {
+            "name": "reviewId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ReviewHistory"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/reviews/{reviewId}/pause": {
+      "post": {
+        "tags": [
+          "Underwriting.Api"
+        ],
+        "parameters": [
+          {
+            "name": "reviewId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CaseCommand"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Review"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/reviews/{reviewId}/resume": {
+      "post": {
+        "tags": [
+          "Underwriting.Api"
+        ],
+        "parameters": [
+          {
+            "name": "reviewId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CaseCommand"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Review"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/reviews/{reviewId}/cancel": {
+      "post": {
+        "tags": [
+          "Underwriting.Api"
+        ],
+        "parameters": [
+          {
+            "name": "reviewId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CaseCommand"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Review"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/interventions": {
+      "post": {
+        "tags": [
+          "Underwriting.Api"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InterventionRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Intervention"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/interventions/{interventionId}": {
+      "get": {
+        "tags": [
+          "Underwriting.Api"
+        ],
+        "parameters": [
+          {
+            "name": "interventionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Intervention"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/notes": {
+      "post": {
+        "tags": [
+          "Underwriting.Api"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NoteRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Note"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/comparisons": {
+      "get": {
+        "tags": [
+          "Underwriting.Api"
+        ],
+        "parameters": [
+          {
+            "name": "left",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "right",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "beforeReviewId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "afterReviewId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ComparisonResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/branches/{branchId}/export": {
+      "get": {
+        "tags": [
+          "Underwriting.Api"
+        ],
+        "parameters": [
+          {
+            "name": "branchId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/events": {
+      "get": {
+        "tags": [
+          "Underwriting.Api"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AnonymousTypeOfIReadOnlyListOfProgressEventAndlong"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/events/stream": {
+      "get": {
+        "tags": [
+          "WorkspaceEndpoints"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/docs": {
+      "get": {
+        "tags": [
+          "Underwriting.Api"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AnonymousTypeOfboolean": {
+        "required": [
+          "deleted"
+        ],
+        "type": "object",
+        "properties": {
+          "deleted": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AnonymousTypeOfCaseRecordAndIEnumerableOfBranch": {
+        "required": [
+          "case",
+          "branches"
+        ],
+        "type": "object",
+        "properties": {
+          "case": {
+            "$ref": "#/components/schemas/CaseRecord"
+          },
+          "branches": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/Branch"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "AnonymousTypeOfIReadOnlyListOfCaseRecordAndstringAndstring": {
+        "required": [
+          "cases",
+          "model",
+          "rulesVersion"
+        ],
+        "type": "object",
+        "properties": {
+          "cases": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/CaseRecord"
+            }
+          },
+          "model": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "rulesVersion": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "AnonymousTypeOfIReadOnlyListOfProgressEventAndlong": {
+        "required": [
+          "events",
+          "lastEventId"
+        ],
+        "type": "object",
+        "properties": {
+          "events": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/ProgressEvent"
+            }
+          },
+          "lastEventId": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int64"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AnonymousTypeOfstringAndstring": {
+        "required": [
+          "caseId",
+          "branchId"
+        ],
+        "type": "object",
+        "properties": {
+          "caseId": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "branchId": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "AnonymousTypeOfstringAndstringAndstringAndListOfstringAndListOfstringAndstring": {
+        "required": [
+          "id",
+          "title",
+          "kind",
+          "pages",
+          "warnings",
+          "createdAt"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "title": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "kind": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "pages": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            }
+          },
+          "warnings": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            }
+          },
+          "createdAt": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "Branch": {
+        "required": [
+          "id",
+          "caseId",
+          "name",
+          "revision",
+          "closingDate",
+          "purchasePrice",
+          "loanAmount",
+          "assumptions",
+          "documentIds",
+          "createdAt"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "caseId": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "revision": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          },
+          "parentId": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "closingDate": {
+            "type": "string"
+          },
+          "purchasePrice": {
+            "pattern": "^-?(?:0|[1-9]\\d*)(?:\\.\\d+)?$",
+            "type": [
+              "number",
+              "string"
+            ],
+            "format": "double"
+          },
+          "loanAmount": {
+            "pattern": "^-?(?:0|[1-9]\\d*)(?:\\.\\d+)?$",
+            "type": [
+              "number",
+              "string"
+            ],
+            "format": "double"
+          },
+          "details": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/CaseDetails"
+              }
+            ]
+          },
+          "assumptions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "documentIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "createdAt": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "BranchRequest": {
+        "required": [
+          "name",
+          "caseId",
+          "branchId",
+          "expectedRevision",
+          "commandId"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "closingDate": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "assumption": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "caseId": {
+            "type": "string"
+          },
+          "branchId": {
+            "type": "string"
+          },
+          "expectedRevision": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          },
+          "commandId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CaseCommand": {
+        "required": [
+          "caseId",
+          "branchId",
+          "expectedRevision",
+          "commandId"
+        ],
+        "type": "object",
+        "properties": {
+          "caseId": {
+            "type": "string"
+          },
+          "branchId": {
+            "type": "string"
+          },
+          "expectedRevision": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          },
+          "commandId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CaseDetails": {
+        "required": [
+          "revision",
+          "candidates",
+          "confirmed",
+          "values",
+          "origins"
+        ],
+        "type": "object",
+        "properties": {
+          "revision": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          },
+          "candidates": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/DetailCandidate"
+              }
+            }
+          },
+          "confirmed": {
+            "type": "boolean"
+          },
+          "values": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "origins": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "CaseRecord": {
+        "required": [
+          "id",
+          "sessionId",
+          "name",
+          "address",
+          "branchIds",
+          "createdAt"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "sessionId": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "displayAddress": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "template": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "status": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "version": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "null",
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          },
+          "branchIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "createdAt": {
+            "type": "string"
+          },
+          "finalizedAt": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "finalizationNote": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "lifecycle": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/LifecycleEntry"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "Citation": {
+        "required": [
+          "documentId",
+          "page",
+          "quote"
+        ],
+        "type": "object",
+        "properties": {
+          "documentId": {
+            "type": "string"
+          },
+          "page": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          },
+          "quote": {
+            "type": "string"
+          },
+          "verified": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "ComparisonResult": {
+        "required": [
+          "left",
+          "right",
+          "beforeBranch",
+          "afterBranch",
+          "beforeReviews",
+          "afterReviews",
+          "incomplete",
+          "reasons",
+          "topics",
+          "unmapped",
+          "evidence",
+          "details",
+          "assumptions",
+          "changes"
+        ],
+        "type": "object",
+        "properties": {
+          "left": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/Review"
+              }
+            ]
+          },
+          "right": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/Review"
+              }
+            ]
+          },
+          "beforeBranch": {
+            "$ref": "#/components/schemas/Branch"
+          },
+          "afterBranch": {
+            "$ref": "#/components/schemas/Branch"
+          },
+          "beforeReviews": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Review"
+            }
+          },
+          "afterReviews": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Review"
+            }
+          },
+          "incomplete": {
+            "type": "boolean"
+          },
+          "reasons": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "topics": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TopicComparison"
+            }
+          },
+          "unmapped": {
+            "$ref": "#/components/schemas/SidesOfListOfFinding"
+          },
+          "evidence": {
+            "$ref": "#/components/schemas/EvidenceChanges"
+          },
+          "details": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DetailChange"
+            }
+          },
+          "assumptions": {
+            "$ref": "#/components/schemas/SidesOfListOfstring"
+          },
+          "changes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LegacyChange"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "ConfirmDetailsRequest": {
+        "required": [
+          "values",
+          "caseId",
+          "branchId",
+          "expectedRevision",
+          "commandId"
+        ],
+        "type": "object",
+        "properties": {
+          "values": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "caseId": {
+            "type": "string"
+          },
+          "branchId": {
+            "type": "string"
+          },
+          "expectedRevision": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          },
+          "commandId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CoverageHistory": {
+        "required": [
+          "reviewer",
+          "findings",
+          "coverage",
+          "at"
+        ],
+        "type": "object",
+        "properties": {
+          "reviewer": {
+            "type": "string"
+          },
+          "findings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Finding"
+            }
+          },
+          "coverage": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CoverageRecord"
+            }
+          },
+          "at": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CoverageRecord": {
+        "required": [
+          "topicId",
+          "reviewer",
+          "status",
+          "explanation",
+          "citations",
+          "findingIds",
+          "gaps"
+        ],
+        "type": "object",
+        "properties": {
+          "topicId": {
+            "type": "string"
+          },
+          "reviewer": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "explanation": {
+            "type": "string"
+          },
+          "citations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Citation"
+            }
+          },
+          "findingIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "gaps": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "outcomeVersion": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "scenario": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/ScenarioAssessment"
+              }
+            ]
+          },
+          "auditQuestion": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "auditResponse": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "auditResolved": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "auditAddressed": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateCaseRequest": {
+        "required": [
+          "commandId",
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "commandId": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string",
+            "default": ""
+          },
+          "closingDate": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "purchasePrice": {
+            "pattern": "^-?(?:0|[1-9]\\d*)(?:\\.\\d+)?$",
+            "type": [
+              "null",
+              "number",
+              "string"
+            ],
+            "format": "double"
+          },
+          "loanAmount": {
+            "pattern": "^-?(?:0|[1-9]\\d*)(?:\\.\\d+)?$",
+            "type": [
+              "null",
+              "number",
+              "string"
+            ],
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateCaseResult": {
+        "required": [
+          "case",
+          "caseId",
+          "branchId"
+        ],
+        "type": "object",
+        "properties": {
+          "case": {
+            "$ref": "#/components/schemas/CaseRecord"
+          },
+          "caseId": {
+            "type": "string"
+          },
+          "branchId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DetailCandidate": {
+        "required": [
+          "value",
+          "citation"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          },
+          "citation": {
+            "$ref": "#/components/schemas/Citation"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DetailChange": {
+        "required": [
+          "field",
+          "before",
+          "after"
+        ],
+        "type": "object",
+        "properties": {
+          "field": {
+            "type": "string"
+          },
+          "before": {},
+          "after": {}
+        },
+        "additionalProperties": false
+      },
+      "DetailHistory": {
+        "required": [
+          "branchId",
+          "details",
+          "at"
+        ],
+        "type": "object",
+        "properties": {
+          "branchId": {
+            "type": "string"
+          },
+          "details": {
+            "$ref": "#/components/schemas/CaseDetails"
+          },
+          "at": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DocumentReference": {
+        "required": [
+          "id",
+          "title"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EditBranchRequest": {
+        "required": [
+          "caseId",
+          "branchId",
+          "expectedRevision",
+          "commandId"
+        ],
+        "type": "object",
+        "properties": {
+          "closingDate": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "assumptions": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            }
+          },
+          "caseId": {
+            "type": "string"
+          },
+          "branchId": {
+            "type": "string"
+          },
+          "expectedRevision": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          },
+          "commandId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EvidenceChanges": {
+        "required": [
+          "added",
+          "removed",
+          "newlyCited"
+        ],
+        "type": "object",
+        "properties": {
+          "added": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DocumentReference"
+            }
+          },
+          "removed": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DocumentReference"
+            }
+          },
+          "newlyCited": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DocumentReference"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "EvidenceChecks": {
+        "required": [
+          "closingDate",
+          "payoutDocumentId",
+          "payoutValidThrough",
+          "payoutExpiresBeforeClosing",
+          "purchasePrice",
+          "loanAmount",
+          "loanExceedsPurchase",
+          "unreadablePages",
+          "assumptions"
+        ],
+        "type": "object",
+        "properties": {
+          "closingDate": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "payoutDocumentId": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "payoutValidThrough": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "payoutExpiresBeforeClosing": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "purchasePrice": {
+            "pattern": "^-?(?:0|[1-9]\\d*)(?:\\.\\d+)?$",
+            "type": [
+              "null",
+              "number",
+              "string"
+            ],
+            "format": "double"
+          },
+          "loanAmount": {
+            "pattern": "^-?(?:0|[1-9]\\d*)(?:\\.\\d+)?$",
+            "type": [
+              "null",
+              "number",
+              "string"
+            ],
+            "format": "double"
+          },
+          "loanExceedsPurchase": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "unreadablePages": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "assumptions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "EvidenceDocument": {
+        "required": [
+          "id",
+          "title",
+          "kind",
+          "pages",
+          "file",
+          "warnings",
+          "createdAt"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string"
+          },
+          "pages": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "file": {
+            "type": "string"
+          },
+          "warnings": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "createdAt": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Exchange": {
+        "required": [
+          "id",
+          "reviewer",
+          "kind",
+          "text",
+          "citations"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "reviewer": {
+            "type": "string"
+          },
+          "target": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "findingId": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "kind": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          },
+          "citations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Citation"
+            }
+          },
+          "disposition": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "unresolved": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "Finding": {
+        "required": [
+          "id",
+          "issueCode",
+          "reviewer",
+          "title",
+          "severity",
+          "status",
+          "explanation",
+          "nextCheck",
+          "reviewQuestions",
+          "citations",
+          "validationWarnings"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "issueCode": {
+            "type": "string"
+          },
+          "reviewer": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "severity": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "explanation": {
+            "type": "string"
+          },
+          "nextCheck": {
+            "type": "string"
+          },
+          "requiresHumanReview": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "category": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "missingDocument": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "impact": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "action": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "known": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "uncertain": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "changeEvidence": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "reviewQuestions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReviewQuestion"
+            }
+          },
+          "citations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Citation"
+            }
+          },
+          "validationWarnings": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "Intervention": {
+        "required": [
+          "id",
+          "caseId",
+          "branchId",
+          "revision",
+          "reviewId",
+          "findingId",
+          "kind",
+          "text",
+          "state",
+          "createdAt"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "caseId": {
+            "type": "string"
+          },
+          "branchId": {
+            "type": "string"
+          },
+          "revision": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          },
+          "reviewId": {
+            "type": "string"
+          },
+          "findingId": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          },
+          "citation": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/Citation"
+              }
+            ]
+          },
+          "state": {
+            "type": "string"
+          },
+          "response": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "disposition": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "error": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "createdAt": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "InterventionRequest": {
+        "required": [
+          "caseId",
+          "branchId",
+          "expectedRevision",
+          "commandId"
+        ],
+        "type": "object",
+        "properties": {
+          "reviewId": {
+            "type": "string"
+          },
+          "findingId": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          },
+          "citation": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/Citation"
+              }
+            ]
+          },
+          "caseId": {
+            "type": "string"
+          },
+          "branchId": {
+            "type": "string"
+          },
+          "expectedRevision": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          },
+          "commandId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "JsonElement": {},
+      "LegacyChange": {
+        "required": [
+          "issueCode",
+          "state",
+          "before",
+          "after"
+        ],
+        "type": "object",
+        "properties": {
+          "issueCode": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string"
+          },
+          "before": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/Finding"
+              }
+            ]
+          },
+          "after": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/Finding"
+              }
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "LifecycleEntry": {
+        "required": [
+          "action",
+          "at",
+          "note"
+        ],
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string"
+          },
+          "at": {
+            "type": "string"
+          },
+          "note": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Note": {
+        "required": [
+          "id",
+          "branchId",
+          "text",
+          "createdAt"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "branchId": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "NoteRequest": {
+        "required": [
+          "text",
+          "caseId",
+          "branchId",
+          "expectedRevision",
+          "commandId"
+        ],
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string"
+          },
+          "caseId": {
+            "type": "string"
+          },
+          "branchId": {
+            "type": "string"
+          },
+          "expectedRevision": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          },
+          "commandId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProgressEvent": {
+        "required": [
+          "id",
+          "sessionId",
+          "caseId",
+          "branchId",
+          "revision",
+          "type",
+          "data",
+          "createdAt"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int64"
+          },
+          "sessionId": {
+            "type": "string"
+          },
+          "caseId": {
+            "type": "string"
+          },
+          "branchId": {
+            "type": "string"
+          },
+          "revision": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          },
+          "type": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/JsonElement"
+          },
+          "createdAt": {
+            "type": "string"
+          },
+          "reviewId": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "reviewer": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "findingId": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "documentId": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "Reveal": {
+        "required": [
+          "id",
+          "title"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RevealRequest": {
+        "required": [
+          "documentId",
+          "caseId",
+          "branchId",
+          "expectedRevision",
+          "commandId"
+        ],
+        "type": "object",
+        "properties": {
+          "documentId": {
+            "type": "string"
+          },
+          "caseId": {
+            "type": "string"
+          },
+          "branchId": {
+            "type": "string"
+          },
+          "expectedRevision": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          },
+          "commandId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Review": {
+        "required": [
+          "id",
+          "caseId",
+          "branchId",
+          "revision",
+          "snapshot",
+          "mode",
+          "status",
+          "stage",
+          "stageName",
+          "pauseRequested",
+          "findings",
+          "exchanges",
+          "brief",
+          "needsRerun",
+          "statusPolicyVersion",
+          "createdAt",
+          "usage",
+          "activities",
+          "coverage",
+          "coverageAuditDone",
+          "coverageRechecked",
+          "coverageHistory"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "caseId": {
+            "type": "string"
+          },
+          "branchId": {
+            "type": "string"
+          },
+          "revision": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          },
+          "snapshot": {
+            "$ref": "#/components/schemas/Snapshot"
+          },
+          "mode": {
+            "type": "string"
+          },
+          "selectedReviewer": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "status": {
+            "type": "string"
+          },
+          "stage": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          },
+          "stageName": {
+            "type": "string"
+          },
+          "pauseRequested": {
+            "type": "boolean"
+          },
+          "findings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Finding"
+            }
+          },
+          "exchanges": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Exchange"
+            }
+          },
+          "brief": {
+            "type": "string"
+          },
+          "needsRerun": {
+            "type": "boolean"
+          },
+          "crossSpecialtyFollowup": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "statusPolicyVersion": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          },
+          "error": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "createdAt": {
+            "type": "string"
+          },
+          "completedAt": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "durationMs": {
+            "pattern": "^-?(?:0|[1-9]\\d*)(?:\\.\\d+)?(?:[eE][+-]?\\d+)?$",
+            "type": [
+              "null",
+              "number",
+              "string"
+            ],
+            "format": "double"
+          },
+          "usage": {
+            "type": "array"
+          },
+          "activities": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReviewerActivity"
+            }
+          },
+          "coverageVersion": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "coverage": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CoverageRecord"
+            }
+          },
+          "coverageStatus": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "coverageAuditDone": {
+            "type": "boolean"
+          },
+          "coverageRechecked": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "coverageHistory": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CoverageHistory"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "ReviewerActivity": {
+        "required": [
+          "id",
+          "reviewer",
+          "stage",
+          "label",
+          "state",
+          "startedAt"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "reviewer": {
+            "type": "string"
+          },
+          "stage": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          },
+          "label": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string"
+          },
+          "startedAt": {
+            "type": "string"
+          },
+          "completedAt": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "attempt": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "null",
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ReviewHistory": {
+        "required": [
+          "reviewId",
+          "at",
+          "review"
+        ],
+        "type": "object",
+        "properties": {
+          "reviewId": {
+            "type": "string"
+          },
+          "at": {
+            "type": "string"
+          },
+          "review": {
+            "$ref": "#/components/schemas/Review"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ReviewQuestion": {
+        "required": [
+          "question",
+          "answer",
+          "citations"
+        ],
+        "type": "object",
+        "properties": {
+          "question": {
+            "type": "string"
+          },
+          "answer": {
+            "type": "string"
+          },
+          "citations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Citation"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "ScenarioAssessment": {
+        "required": [
+          "status",
+          "explanation",
+          "citations",
+          "findingIds",
+          "limitationIds"
+        ],
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "explanation": {
+            "type": "string"
+          },
+          "citations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Citation"
+            }
+          },
+          "findingIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "limitationIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "SessionResult": {
+        "required": [
+          "caseId",
+          "branchId",
+          "token"
+        ],
+        "type": "object",
+        "properties": {
+          "caseId": {
+            "type": "string"
+          },
+          "branchId": {
+            "type": "string"
+          },
+          "token": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SidesOfListOfFinding": {
+        "required": [
+          "before",
+          "after"
+        ],
+        "type": "object",
+        "properties": {
+          "before": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/Finding"
+            }
+          },
+          "after": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/Finding"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "SidesOfListOfstring": {
+        "required": [
+          "before",
+          "after"
+        ],
+        "type": "object",
+        "properties": {
+          "before": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            }
+          },
+          "after": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "SignIn": {
+        "required": [
+          "accessCode"
+        ],
+        "type": "object",
+        "properties": {
+          "accessCode": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Snapshot": {
+        "required": [
+          "caseId",
+          "branchId",
+          "revision",
+          "closingDate",
+          "purchasePrice",
+          "loanAmount",
+          "assumptions",
+          "documents",
+          "rulesVersion"
+        ],
+        "type": "object",
+        "properties": {
+          "details": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/CaseDetails"
+              }
+            ]
+          },
+          "caseName": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "address": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "caseId": {
+            "type": "string"
+          },
+          "branchId": {
+            "type": "string"
+          },
+          "revision": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          },
+          "closingDate": {
+            "type": "string"
+          },
+          "purchasePrice": {
+            "pattern": "^-?(?:0|[1-9]\\d*)(?:\\.\\d+)?$",
+            "type": [
+              "number",
+              "string"
+            ],
+            "format": "double"
+          },
+          "loanAmount": {
+            "pattern": "^-?(?:0|[1-9]\\d*)(?:\\.\\d+)?$",
+            "type": [
+              "number",
+              "string"
+            ],
+            "format": "double"
+          },
+          "assumptions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "documents": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EvidenceDocument"
+            }
+          },
+          "rulesVersion": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "StartReviewRequest": {
+        "required": [
+          "caseId",
+          "branchId",
+          "expectedRevision",
+          "commandId"
+        ],
+        "type": "object",
+        "properties": {
+          "mode": {
+            "type": "string"
+          },
+          "selectedReviewer": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "rebuildBriefFrom": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "caseId": {
+            "type": "string"
+          },
+          "branchId": {
+            "type": "string"
+          },
+          "expectedRevision": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          },
+          "commandId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "StatusRequest": {
+        "required": [
+          "commandId",
+          "expectedVersion",
+          "status",
+          "note"
+        ],
+        "type": "object",
+        "properties": {
+          "commandId": {
+            "type": "string"
+          },
+          "expectedVersion": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          },
+          "status": {
+            "type": "string"
+          },
+          "note": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "TopicComparison": {
+        "required": [
+          "id",
+          "label",
+          "reviewer",
+          "outcome",
+          "changed",
+          "before",
+          "after"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "reviewer": {
+            "type": "string"
+          },
+          "outcome": {
+            "type": "string"
+          },
+          "changed": {
+            "type": "boolean"
+          },
+          "before": {
+            "$ref": "#/components/schemas/TopicSide"
+          },
+          "after": {
+            "$ref": "#/components/schemas/TopicSide"
+          }
+        },
+        "additionalProperties": false
+      },
+      "TopicSide": {
+        "required": [
+          "status",
+          "explanation",
+          "citations",
+          "findings",
+          "limitations",
+          "reasons"
+        ],
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "explanation": {
+            "type": "string"
+          },
+          "citations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Citation"
+            }
+          },
+          "findings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Finding"
+            }
+          },
+          "limitations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Finding"
+            }
+          },
+          "reasons": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "UploadResult": {
+        "required": [
+          "document",
+          "branch"
+        ],
+        "type": "object",
+        "properties": {
+          "document": {
+            "$ref": "#/components/schemas/EvidenceDocument"
+          },
+          "branch": {
+            "$ref": "#/components/schemas/Branch"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Workspace": {
+        "required": [
+          "case",
+          "branch",
+          "snapshot",
+          "checks",
+          "branches",
+          "reviews",
+          "interventions",
+          "notes",
+          "reveals",
+          "lastEventId"
+        ],
+        "type": "object",
+        "properties": {
+          "case": {
+            "$ref": "#/components/schemas/CaseRecord"
+          },
+          "branch": {
+            "$ref": "#/components/schemas/Branch"
+          },
+          "snapshot": {
+            "$ref": "#/components/schemas/Snapshot"
+          },
+          "checks": {
+            "$ref": "#/components/schemas/EvidenceChecks"
+          },
+          "branches": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Branch"
+            }
+          },
+          "reviews": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Review"
+            }
+          },
+          "interventions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Intervention"
+            }
+          },
+          "notes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Note"
+            }
+          },
+          "reveals": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Reveal"
+            }
+          },
+          "lastEventId": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int64"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Underwriting.Api"
+    },
+    {
+      "name": "WorkspaceEndpoints"
+    }
+  ]
+}
